@@ -35,6 +35,7 @@
             label1 = new Label();
             btnConfirmarAtencion = new Button();
             lbsolicitudseleccionada = new Label();
+            lsbColaSolicitudesAtender = new ListBox();
             SuspendLayout();
             // 
             // openFileDialog1
@@ -57,8 +58,9 @@
             lsbverResultados.ItemHeight = 15;
             lsbverResultados.Location = new Point(28, 117);
             lsbverResultados.Name = "lsbverResultados";
-            lsbverResultados.Size = new Size(287, 229);
+            lsbverResultados.Size = new Size(240, 199);
             lsbverResultados.TabIndex = 1;
+            lsbverResultados.SelectedIndexChanged += lsbverResultados_SelectedIndexChanged;
             // 
             // label1
             // 
@@ -71,7 +73,7 @@
             // 
             // btnConfirmarAtencion
             // 
-            btnConfirmarAtencion.Location = new Point(373, 171);
+            btnConfirmarAtencion.Location = new Point(289, 176);
             btnConfirmarAtencion.Name = "btnConfirmarAtencion";
             btnConfirmarAtencion.Size = new Size(86, 47);
             btnConfirmarAtencion.TabIndex = 3;
@@ -81,17 +83,27 @@
             // lbsolicitudseleccionada
             // 
             lbsolicitudseleccionada.AutoSize = true;
-            lbsolicitudseleccionada.Location = new Point(321, 136);
+            lbsolicitudseleccionada.Location = new Point(274, 148);
             lbsolicitudseleccionada.Name = "lbsolicitudseleccionada";
             lbsolicitudseleccionada.Size = new Size(160, 15);
             lbsolicitudseleccionada.TabIndex = 4;
             lbsolicitudseleccionada.Text = "Lista De Solicitudes Entrantes";
+            // 
+            // lsbColaSolicitudesAtender
+            // 
+            lsbColaSolicitudesAtender.FormattingEnabled = true;
+            lsbColaSolicitudesAtender.ItemHeight = 15;
+            lsbColaSolicitudesAtender.Location = new Point(469, 117);
+            lsbColaSolicitudesAtender.Name = "lsbColaSolicitudesAtender";
+            lsbColaSolicitudesAtender.Size = new Size(240, 199);
+            lsbColaSolicitudesAtender.TabIndex = 5;
             // 
             // FormPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lsbColaSolicitudesAtender);
             Controls.Add(lbsolicitudseleccionada);
             Controls.Add(btnConfirmarAtencion);
             Controls.Add(label1);
@@ -113,5 +125,6 @@
         private Label label1;
         private Button btnConfirmarAtencion;
         private Label lbsolicitudseleccionada;
+        private ListBox lsbColaSolicitudesAtender;
     }
 }

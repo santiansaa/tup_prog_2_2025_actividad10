@@ -12,7 +12,7 @@ public partial class FormPrincipal : Form
 
     private void btnImportarSolicitudes_Click(object sender, EventArgs e)
     {
-        if (openFileDialog1.ShowDialog() == DialogResult.OK) 
+        if (openFileDialog1.ShowDialog() == DialogResult.OK)
         {
             string path = openFileDialog1.FileName;
             FileStream fs = null;
@@ -26,9 +26,9 @@ public partial class FormPrincipal : Form
             {
                 MessageBox.Show(ex.ToString());
             }
-            finally 
+            finally
             {
-                if (fs != null) 
+                if (fs != null)
                 {
                     fs.Close();
                 }
@@ -36,19 +36,43 @@ public partial class FormPrincipal : Form
             }
         }
     }
-    protected void VersolicitudesPendientes() 
+    protected void VersolicitudesPendientes()
     {
         lsbverResultados.Items.Clear();
         LinkedListNode<Solicitud> nodo = centro.GetSolicitudPendiente();
         //
-        while(nodo!=null) 
+        while (nodo != null)
         {
             lsbverResultados.Items.Add(nodo.Value);
             nodo = nodo.Next;
         }
 
-    
+
 
     }
 
+    protected void VersolicitudesAAtender() 
+    {
+        lsbColaSolicitudesAtender.Items.Clear();
+        lsbColaSolicitudesAtender.Items.Add(centro.VerDescripcionesColaAtencion());
+    }
+
+    private void lsbverResultados_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        Solicitud seleccionada = lsbverResultados.SelectedItem as Solicitud;
+        if (seleccionada != null)
+        {
+            centro.Antender(seleccionada);
+
+            VersolicitudesPendientes();
+            VersolicitudesAAtender();
+            lsbverResultados.SelectedItem = null;
+            lbsolicitudseleccionada.Text = "Seleccione un registro";
+
+        }
+        else 
+        {
+            MessageBox.Show("Debe seleccionar una solicitud ");
+        }
+    }
 }
