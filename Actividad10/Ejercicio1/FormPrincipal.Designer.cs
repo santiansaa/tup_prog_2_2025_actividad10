@@ -36,6 +36,13 @@
             btnConfirmarAtencion = new Button();
             lbsolicitudseleccionada = new Label();
             lsbColaSolicitudesAtender = new ListBox();
+            label2 = new Label();
+            btnResolverSolicitud = new Button();
+            groupBox1 = new GroupBox();
+            lsbHistorialResoluciones = new ListBox();
+            btnExportarResoluciones = new Button();
+            label3 = new Label();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // openFileDialog1
@@ -44,7 +51,7 @@
             // 
             // btnImportarSolicitudes
             // 
-            btnImportarSolicitudes.Location = new Point(28, 33);
+            btnImportarSolicitudes.Location = new Point(12, 12);
             btnImportarSolicitudes.Name = "btnImportarSolicitudes";
             btnImportarSolicitudes.Size = new Size(86, 47);
             btnImportarSolicitudes.TabIndex = 0;
@@ -56,36 +63,35 @@
             // 
             lsbverResultados.FormattingEnabled = true;
             lsbverResultados.ItemHeight = 15;
-            lsbverResultados.Location = new Point(28, 117);
+            lsbverResultados.Location = new Point(112, 12);
             lsbverResultados.Name = "lsbverResultados";
-            lsbverResultados.Size = new Size(240, 199);
+            lsbverResultados.Size = new Size(424, 124);
             lsbverResultados.TabIndex = 1;
             lsbverResultados.SelectedIndexChanged += lsbverResultados_SelectedIndexChanged;
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(28, 99);
+            label1.Location = new Point(12, 62);
             label1.Name = "label1";
-            label1.Size = new Size(160, 15);
+            label1.Size = new Size(94, 49);
             label1.TabIndex = 2;
             label1.Text = "Lista De Solicitudes Entrantes";
             // 
             // btnConfirmarAtencion
             // 
-            btnConfirmarAtencion.Location = new Point(289, 176);
+            btnConfirmarAtencion.Location = new Point(12, 190);
             btnConfirmarAtencion.Name = "btnConfirmarAtencion";
-            btnConfirmarAtencion.Size = new Size(86, 47);
+            btnConfirmarAtencion.Size = new Size(86, 72);
             btnConfirmarAtencion.TabIndex = 3;
-            btnConfirmarAtencion.Text = "Importar Solicitudes";
+            btnConfirmarAtencion.Text = "Confirmar Seleccion Hacia La Cola";
             btnConfirmarAtencion.UseVisualStyleBackColor = true;
+            btnConfirmarAtencion.Click += btnConfirmarAtencion_Click;
             // 
             // lbsolicitudseleccionada
             // 
-            lbsolicitudseleccionada.AutoSize = true;
-            lbsolicitudseleccionada.Location = new Point(274, 148);
+            lbsolicitudseleccionada.Location = new Point(0, 275);
             lbsolicitudseleccionada.Name = "lbsolicitudseleccionada";
-            lbsolicitudseleccionada.Size = new Size(160, 15);
+            lbsolicitudseleccionada.Size = new Size(115, 39);
             lbsolicitudseleccionada.TabIndex = 4;
             lbsolicitudseleccionada.Text = "Lista De Solicitudes Entrantes";
             // 
@@ -93,16 +99,78 @@
             // 
             lsbColaSolicitudesAtender.FormattingEnabled = true;
             lsbColaSolicitudesAtender.ItemHeight = 15;
-            lsbColaSolicitudesAtender.Location = new Point(469, 117);
+            lsbColaSolicitudesAtender.Location = new Point(112, 190);
             lsbColaSolicitudesAtender.Name = "lsbColaSolicitudesAtender";
-            lsbColaSolicitudesAtender.Size = new Size(240, 199);
+            lsbColaSolicitudesAtender.Size = new Size(424, 139);
             lsbColaSolicitudesAtender.TabIndex = 5;
+            // 
+            // label2
+            // 
+            label2.Location = new Point(112, 332);
+            label2.Name = "label2";
+            label2.Size = new Size(72, 39);
+            label2.TabIndex = 6;
+            label2.Text = "Cola";
+            // 
+            // btnResolverSolicitud
+            // 
+            btnResolverSolicitud.Location = new Point(542, 195);
+            btnResolverSolicitud.Name = "btnResolverSolicitud";
+            btnResolverSolicitud.Size = new Size(81, 63);
+            btnResolverSolicitud.TabIndex = 7;
+            btnResolverSolicitud.Text = "Resolver Solicitud";
+            btnResolverSolicitud.UseVisualStyleBackColor = true;
+            btnResolverSolicitud.Click += btnResolverSolicitud_Click;
+            // 
+            // groupBox1
+            // 
+            groupBox1.BackColor = SystemColors.Info;
+            groupBox1.Controls.Add(lsbHistorialResoluciones);
+            groupBox1.Controls.Add(btnExportarResoluciones);
+            groupBox1.Controls.Add(label3);
+            groupBox1.ForeColor = SystemColors.ActiveCaptionText;
+            groupBox1.Location = new Point(629, 12);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(400, 317);
+            groupBox1.TabIndex = 8;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "groupBox1";
+            // 
+            // lsbHistorialResoluciones
+            // 
+            lsbHistorialResoluciones.FormattingEnabled = true;
+            lsbHistorialResoluciones.ItemHeight = 15;
+            lsbHistorialResoluciones.Location = new Point(6, 122);
+            lsbHistorialResoluciones.Name = "lsbHistorialResoluciones";
+            lsbHistorialResoluciones.Size = new Size(375, 154);
+            lsbHistorialResoluciones.TabIndex = 10;
+            // 
+            // btnExportarResoluciones
+            // 
+            btnExportarResoluciones.BackColor = SystemColors.Highlight;
+            btnExportarResoluciones.Location = new Point(117, 36);
+            btnExportarResoluciones.Name = "btnExportarResoluciones";
+            btnExportarResoluciones.Size = new Size(166, 63);
+            btnExportarResoluciones.TabIndex = 9;
+            btnExportarResoluciones.Text = "Exportar Resoluciones";
+            btnExportarResoluciones.UseVisualStyleBackColor = false;
+            // 
+            // label3
+            // 
+            label3.Location = new Point(6, 293);
+            label3.Name = "label3";
+            label3.Size = new Size(72, 39);
+            label3.TabIndex = 9;
+            label3.Text = "PIla";
             // 
             // FormPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1041, 353);
+            Controls.Add(groupBox1);
+            Controls.Add(btnResolverSolicitud);
+            Controls.Add(label2);
             Controls.Add(lsbColaSolicitudesAtender);
             Controls.Add(lbsolicitudseleccionada);
             Controls.Add(btnConfirmarAtencion);
@@ -112,8 +180,8 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "FormPrincipal";
             Text = "Form1";
+            groupBox1.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -126,5 +194,11 @@
         private Button btnConfirmarAtencion;
         private Label lbsolicitudseleccionada;
         private ListBox lsbColaSolicitudesAtender;
+        private Label label2;
+        private Button btnResolverSolicitud;
+        private GroupBox groupBox1;
+        private ListBox lsbHistorialResoluciones;
+        private Button btnExportarResoluciones;
+        private Label label3;
     }
 }

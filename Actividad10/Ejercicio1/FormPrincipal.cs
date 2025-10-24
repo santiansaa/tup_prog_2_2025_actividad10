@@ -51,7 +51,7 @@ public partial class FormPrincipal : Form
 
     }
 
-    protected void VersolicitudesAAtender() 
+    protected void VersolicitudesAAtender()
     {
         lsbColaSolicitudesAtender.Items.Clear();
         lsbColaSolicitudesAtender.Items.Add(centro.VerDescripcionesColaAtencion());
@@ -62,17 +62,25 @@ public partial class FormPrincipal : Form
         Solicitud seleccionada = lsbverResultados.SelectedItem as Solicitud;
         if (seleccionada != null)
         {
-            centro.Antender(seleccionada);
-
-            VersolicitudesPendientes();
-            VersolicitudesAAtender();
-            lsbverResultados.SelectedItem = null;
-            lbsolicitudseleccionada.Text = "Seleccione un registro";
-
+            lbsolicitudseleccionada.Text = seleccionada.ToString();
         }
-        else 
+
+    }
+
+    private void btnConfirmarAtencion_Click(object sender, EventArgs e)
+    {
+        Solicitud s = lsbverResultados.SelectedItem as Solicitud;
+        if (s != null)
         {
-            MessageBox.Show("Debe seleccionar una solicitud ");
+            centro.Antender(s);
+            lsbverResultados.Items.Remove(s);
+            lsbColaSolicitudesAtender.Items.Add(s.ToString());
+            MessageBox.Show("Solicitud con Exito");
         }
+    }
+
+    private void btnResolverSolicitud_Click(object sender, EventArgs e)
+    {
+        
     }
 }
