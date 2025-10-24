@@ -81,6 +81,13 @@ public partial class FormPrincipal : Form
 
     private void btnResolverSolicitud_Click(object sender, EventArgs e)
     {
-        
+        Solicitud soli = lsbColaSolicitudesAtender.SelectedItem as Solicitud;
+        if (soli != null) 
+        {
+            centro.ResolverSolicitudEnEspera(soli);
+            lsbColaSolicitudesAtender.Items.Remove(soli);
+            lsbHistorialResoluciones.Items.Add(soli.ToString());
+            MessageBox.Show("se resolvio el problema");
+        }
     }
 }

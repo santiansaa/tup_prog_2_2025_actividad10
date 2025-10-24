@@ -9,6 +9,7 @@ public class CentroDeAtencion
 {
     private LinkedList<Solicitud> solicitudesEntrantes = new LinkedList<Solicitud>();
     private Queue<Solicitud> coladeatencion = new Queue<Solicitud>();
+    private Stack<Solicitud> piladeatencion = new Stack<Solicitud>();
 
 
     public void ImportarCsvSolicitudesEntrantes(FileStream fs)
@@ -53,5 +54,15 @@ public class CentroDeAtencion
             descripciones[n++] = s.ToString();
         }
         return descripciones;
+    }
+
+    internal void ResolverSolicitudEnEspera(Solicitud soli)
+    {
+        if (coladeatencion.Peek() == soli)
+        {
+            coladeatencion.Dequeue();
+            piladeatencion.Push(soli);
+        }
+       
     }
 }
